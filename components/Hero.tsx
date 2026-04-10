@@ -7,10 +7,10 @@ export const Hero: React.FC = () => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
       if (path === '/ca' || path === '/ca/') {
-        return 'https://trkfy.org/aff_c?offer_id=2691&aff_id=2609';
+        return 'https://linkthem.net/aff_c?offer_id=2691&aff_id=2609';
       }
     }
-    return 'https://trkfy.org/aff_c?offer_id=2691&aff_id=2609';
+    return 'https://linkthem.net/aff_c?offer_id=2691&aff_id=2609';
   };
 
   const affiliateLink = getAffiliateLink();
