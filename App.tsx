@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Hero } from './components/Hero';
 
+const AgeGate: React.FC<{ onVerify: (isOver21: boolean) => void }> = ({ onVerify }) => {
+  return (
+    <div className="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center p-4">
+      <div className="bg-[#1a1c26] p-8 rounded-2xl border border-white/5 max-w-md w-full shadow-2xl text-center">
+        <h2 className="text-2xl font-bold text-white mb-6">Age Verification</h2>
+        <p className="text-slate-300 mb-8 text-lg">Are you older than 21 years?</p>
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={() => onVerify(true)}
+            className="w-full bg-green-600 hover:bg-green-700 text-black font-bold py-3 rounded-xl transition-colors text-lg active:scale-95 transform duration-100"
+          >
+            Yes, I am older than 21
+          </button>
+          <button
+            onClick={() => {
+              window.location.href = 'https://SuperClaimed.com';
+            }}
+            className="w-full bg-white/5 text-slate-400 font-bold py-3 rounded-xl hover:bg-white/10 transition-colors active:scale-95 transform duration-100"
+          >
+            No, I am younger than 21
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
+  const [isVerified, setIsVerified] = useState(false);
+
+  const handleVerification = (isOver21: boolean) => {
+    setIsVerified(true);
+    window.scrollTo(0, 0);
+  };
+
+  if (!isVerified) {
+    return <AgeGate onVerify={handleVerification} />;
+  }
+
   return (
     <div className="min-h-[100dvh] bg-[#0a0a0a] font-sans antialiased selection:bg-brand selection:text-white overflow-x-hidden">
       <main>
