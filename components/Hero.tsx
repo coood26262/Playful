@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-white">
             Make <span className="text-purple-500">$332+</span> Daily
             <br />
-            Watching Reels
+            Watching TikTok Videos
           </h1>
 
           {/* Subheading */}
